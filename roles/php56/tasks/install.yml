@@ -1,0 +1,46 @@
+# file: roles/php56/tasks/install.yml
+---
+# file: roles/php/tasks/install.yml
+# - name: Add repository 'epel-repo'
+#   yum: name=http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
+
+- name: Add repository 'rpmforge-repo'
+  yum: name=http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm state=present
+
+- name: Add repository 'remi-repo'
+  yum: name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm state=present
+
+- name: enable remi
+  command: yum-config-manager --enable remi
+
+- name: enable remi-php56
+  command: yum-config-manager --enable remi-php56
+
+# - name: enable epel
+#   command: yum-config-manager --enable epel
+
+- name: upgrade all packages
+  yum: name=* state=latest
+
+- name: Instal php
+  yum: pkg={{ item }} enablerepo=remi,rpmforge,remi-php56 state=present
+  with_items:
+    - php
+    - php-common
+
+- name: Instal php modules
+  yum: pkg={{ item }} enablerepo=remi,rpmforge,remi-php56 state=present
+  with_items:
+    - php
+    - php-cli
+    - php-common
+    - php-devel
+    - php-fpm
+    - php-json
+    - php-mbstring
+    - php-mysql
+    - php-pdo
+    - php-process
+    - php-xml
+  notify:
+  - restart httpd

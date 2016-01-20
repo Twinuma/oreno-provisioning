@@ -1,0 +1,5 @@
+# file: group_vars/api.yml
+git_repos_url: git@github.com:monstar-lab/st_api.git
+git_repos_dir: /home/vagrant/seventeen
+git_branch: master
+vars_files: roles/mysql/vars/mysql.yml

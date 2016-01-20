@@ -1,0 +1,4 @@
+#
+# site.yml
+#
+- include: api.yml

@@ -1,0 +1,25 @@
+# file: api.yml
+---
+- hosts: api
+  sudo: true
+  user: vagrant
+  gather_facts: no
+  remote_user: root
+  vars:
+    app:
+      user: vagrant
+    git:
+      repos_url: git@github.com:monstar-lab/st_api.git
+      repos_dir: /home/vagrant/seventeen
+      branch: master
+    doc_root: seventeen
+    domain: api.seventeen.me
+  vars_files:
+    - roles/mysql/vars/mysql.yml
+  roles:
+    - init
+    - httpd
+    - app
+    - php56
+    - mysql
+    - composer

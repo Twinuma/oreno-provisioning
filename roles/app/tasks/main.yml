@@ -1,0 +1,5 @@
+# file: roles/app/task/main.yml
+---
+- name: create symbolic link
+  sudo: true
+  file: src=/home/vagrant/seventeen dest=/var/www/html/seventeen owner=vagrant group=vagrant state=link

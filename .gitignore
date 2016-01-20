@@ -1,0 +1,7 @@
+# Created by https://www.gitignore.io/api/ag,vagrant
+
+#!! ERROR: ag is undefined. Use list command to see defined gitignore types !!#
+
+### Vagrant ###
+.vagrant/
+.DS_Store

@@ -1,0 +1,9 @@
+# file: roles/php56/tasks/configure.yml
+---
+- name: Install Composer globally
+  shell:  curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f composer.phar {{ composer_path }} creates={{ composer_path }}
+
+- name: php is configured
+  notify:
+    - restart httpd
+  lineinfile: dest="/etc/php.ini" state=present regexp="^\;date.timezone =$" line="date.timezone = Asia/Tokyo" backrefs=yes
