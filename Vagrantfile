@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "bento/centos-6.7"
   config.vm.box_url = "https://atlas.hashicorp.com/bento/centos-6.7"
 
-  config.vm.synced_folder "../", "/home/vagrant/seventeen"
+  config.vm.synced_folder "../", "/home/vagrant/test"
 
   config.vm.network :forwarded_port, host: 80, guest: 80, auto_correct: true # website
 

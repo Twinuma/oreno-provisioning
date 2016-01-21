@@ -9,11 +9,11 @@
     app:
       user: vagrant
     git:
-      repos_url: git@github.com:monstar-lab/st_api.git
-      repos_dir: /home/vagrant/seventeen
+      repos_url: git@github.com:Twinuma/oreno-provisioning.git
+      repos_dir: /home/vagrant/test
       branch: master
-    doc_root: seventeen
-    domain: api.seventeen.me
+    doc_root: test
+    domain: api.test.me
   vars_files:
     - roles/mysql/vars/mysql.yml
   roles:

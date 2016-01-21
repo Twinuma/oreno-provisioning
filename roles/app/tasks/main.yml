@@ -2,4 +2,4 @@
 ---
 - name: create symbolic link
   sudo: true
-  file: src=/home/vagrant/seventeen dest=/var/www/html/seventeen owner=vagrant group=vagrant state=link
+  file: src=/home/vagrant/test dest=/var/www/html/test owner=vagrant group=vagrant state=link
